@@ -2,57 +2,57 @@ const numberKeys = [
   {
     name: '`',
     altName: '~',
-    data: 'num-tilda'
+    data: '`'
   },
   {
     name: '1',
     altName: '!',
-    data: 'num-1'
+    data: '1'
   },
   {
     name: '2',
     altName: '@',
-    data: 'num-2'
+    data: '2'
   },
   {
     name: '3',
     altName: '#',
-    data: 'num-3'
+    data: '3'
   },
   {
     name: '4',
     altName: '$',
-    data: 'num-4'
+    data: '4'
   },
   {
     name: '5',
     altName: '%',
-    data: 'num-5'
+    data: '5'
   },
   {
     name: '6',
     altName: '^',
-    data: 'num-6'
+    data: '6'
   },
   {
     name: '7',
     altName: '&',
-    data: 'num-7'
+    data: '7'
   },
   {
     name: '8',
     altName: '*',
-    data: 'num-8'
+    data: '8'
   },
   {
     name: '9',
     altName: '(',
-    data: 'num-9'
+    data: '9'
   },
   {
     name: '0',
     altName: ')',
-    data: 'num-0'
+    data: '0'
   },
   {
     name: '-',

@@ -55,4 +55,9 @@
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
+
+.key-active,
+.instant-active {
+  background-color: blueviolet;
+}
 /*# sourceMappingURL=style.css.map */

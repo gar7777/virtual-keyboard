@@ -1,11 +1,12 @@
 import keySets from './key-sets.js';
 import {KeyNum,  KeyLetter, KeyGeneral, Line} from './key-templates.js';
 import { state } from './state.js';
-import { handlePress } from './handlers.js';
+import { handlePress, removeKeyActive } from './handlers.js';
 
 export function initRender() {
   const body = document.body;
   const textarea = document.createElement('textarea');
+  textarea.setAttribute('autofocus', true);
   const keyboardContainer = document.createElement('div');
   keyboardContainer.className = 'keyboard-container';
   for (let i = 0; i < 5; i++) {
@@ -42,7 +43,7 @@ export function initRender() {
   lines[2].append(enter.element);
 
   //LINE 4
-  const leftShift = new KeyGeneral('Shift', 'LeftShift');
+  const leftShift = new KeyGeneral('Shift', 'ShiftLeft');
   lines[3].append(leftShift.element);
   keySets.letterKeysEng[2].forEach(item => {
     const keyObject = new KeyLetter(checkName(item.name, item), item.data);
@@ -50,23 +51,23 @@ export function initRender() {
   });
   const arrowUp = new KeyGeneral('↑', 'ArrowUp');
   lines[3].append(arrowUp.element);
-  const rightShift = new KeyGeneral('Shift', 'RightShift');
+  const rightShift = new KeyGeneral('Shift', 'ShiftRight');
   lines[3].append(rightShift.element);
 
   //LINE 5
-  const leftCtrl = new KeyGeneral('Ctrl', 'LeftCtrl');
+  const leftCtrl = new KeyGeneral('Ctrl', 'CtrlLeft');
   lines[4].append(leftCtrl.element);
   const win = new KeyGeneral('Win', 'Meta');
   lines[4].append(win.element);
-  const leftAlt = new KeyGeneral('Alt', 'LeftAlt');
+  const leftAlt = new KeyGeneral('Alt', 'AltLeft');
   lines[4].append(leftAlt.element);
   const space = new KeyLetter(' ', 'Space');
   lines[4].append(space.element);
-  const rightAlt = new KeyGeneral('Alt', 'RightAlt');
+  const rightAlt = new KeyGeneral('Alt', 'AltRight');
   lines[4].append(rightAlt.element);
   const context = new KeyGeneral('Ctx', 'ContextMenu');
   lines[4].append(context.element);
-  const rightCtrl = new KeyGeneral('Ctrl', 'RightCtrl');
+  const rightCtrl = new KeyGeneral('Ctrl', 'CtrlRight');
   lines[4].append(rightCtrl.element);
   const arrowLeft = new KeyGeneral('←', 'ArrowLeft');
   lines[4].append(arrowLeft.element);
@@ -76,9 +77,10 @@ export function initRender() {
   lines[4].append(arrowRight.element);
 
   //EVENT_LISTENER
-  keyboardContainer.addEventListener('click', (e) => {
+  keyboardContainer.addEventListener('mousedown', (e) => {
     handlePress(e, textarea)
-  })
+  });
+  keyboardContainer.addEventListener('mouseup', removeKeyActive);
   body.prepend(textarea, keyboardContainer);
 }
 
@@ -88,6 +90,6 @@ function checkName(name, item) {
   return keyName;
 }
 
-function checkLanguage() {
-
-}
+// function checkLanguage() {
+//   console.log('hello')
+// }
