@@ -6,6 +6,10 @@
   align-items: center;
   border: 1px solid black;
   user-select: none;
+
+  &:hover{
+    filter: saturate(50%)
+  }
 }
 
 .key-common {
@@ -37,4 +41,12 @@
 .key-active,
 .instant-active {
   background-color: blueviolet;
+}
+
+.textarea {
+  width: 70vw;
+  height: 30vh;
+  display: block;
+  resize: none;
+  margin: 0 auto 50px;
 }

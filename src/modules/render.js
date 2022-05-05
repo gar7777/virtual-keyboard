@@ -7,6 +7,7 @@ export function initRender() {
   const body = document.body;
   const textarea = document.createElement('textarea');
   textarea.setAttribute('autofocus', true);
+  textarea.classList.add('textarea');
   const keyboardContainer = document.createElement('div');
   keyboardContainer.className = 'keyboard-container';
   for (let i = 0; i < 5; i++) {
@@ -80,7 +81,9 @@ export function initRender() {
   keyboardContainer.addEventListener('mousedown', (e) => {
     handlePress(e, textarea)
   });
-  keyboardContainer.addEventListener('mouseup', removeKeyActive);
+  keyboardContainer.addEventListener('mouseup', () => {
+    removeKeyActive(textarea)
+  });
   body.prepend(textarea, keyboardContainer);
 }
 

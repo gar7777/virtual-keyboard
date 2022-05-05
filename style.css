@@ -17,6 +17,11 @@
           user-select: none;
 }
 
+.key:hover {
+  -webkit-filter: saturate(50%);
+          filter: saturate(50%);
+}
+
 .key-common {
   background-color: yellow;
 }
@@ -59,5 +64,13 @@
 .key-active,
 .instant-active {
   background-color: blueviolet;
+}
+
+.textarea {
+  width: 70vw;
+  height: 30vh;
+  display: block;
+  resize: none;
+  margin: 0 auto 50px;
 }
 /*# sourceMappingURL=style.css.map */
