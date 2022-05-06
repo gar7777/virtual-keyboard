@@ -1,4 +1,4 @@
-// import { state } from "./state.js";
+import { state } from "./state.js";
 import { handleCapsLock, handleShift, handleControl, handleAlt } from "./special-keys.js";
 import keySets from './key-sets.js';
 
@@ -54,9 +54,8 @@ export function handlePress(e, textarea) {
       // bubbles: true,
       // cancelable: false
     })
-    console.log(event)
     setTimeout(() => {
-      textarea.dispatchEvent(event);
+    textarea.dispatchEvent(event);
     });
     
   }
@@ -64,6 +63,8 @@ export function handlePress(e, textarea) {
 
 export function handleKeyDown(e) {
   const textarea = document.body.querySelector('textarea');
+  const position = textarea.selectionStart;
+  const arr = (textarea.value).split('');
   const allKeys = document.body.querySelectorAll('.key');
   textarea.focus();
   const letters = [...keySets.letterKeysEng[0], ...keySets.letterKeysEng[1], ...keySets.letterKeysEng[2]] 
@@ -73,7 +74,14 @@ export function handleKeyDown(e) {
     }
   })
   if (letters.some(item => item.data === e.code)) {
-    console.log('is')
+    e.preventDefault();
+    if(!state.isCapsOn){
+      arr.splice(position, 0, e.key.toLowerCase())
+    } else {
+      arr.splice(position, 0, e.key.toUpperCase())
+    }
+    textarea.value = arr.join('');
+    textarea.setSelectionRange(position + 1, position + 1);
   }
   if (e.key === 'Tab') {
     let position = textarea.selectionStart;
@@ -92,9 +100,10 @@ export function handleKeyDown(e) {
     handleAlt(e);
   }
   if (e.key === 'Shift') {
-    handleShift();
+    handleShift(e);
   }
   if (e.key === 'CapsLock') {
+    e.preventDefault();
     handleCapsLock();
   }
 }
