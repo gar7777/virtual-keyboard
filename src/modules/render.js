@@ -16,8 +16,16 @@ export function initRender() {
   }
   const lines = keyboardContainer.querySelectorAll('.keyboard-line');
   //LINE 1
-  keySets.numberKeys.forEach(item => {
-    const keyObject = new KeyNum(checkName(item.name, item), item.data);
+  let numberKeys = keySets.numberKeysEng;
+  if (state.lang === 'bel') {
+    numberKeys = keySets.numberKeysBel;
+  }
+  let letterKeys = keySets.letterKeysEng;
+  if (state.lang === 'bel') {
+    letterKeys = keySets.letterKeysBel;
+  }
+  numberKeys.forEach(item => {
+    const keyObject = new KeyNum(item.name, item.data, item.altName);
     lines[0].append(keyObject.element)
   })
   const backspace = new KeyGeneral('Backspace', 'Backspace');
@@ -26,8 +34,8 @@ export function initRender() {
   //LINE2
   const tab = new KeyGeneral('Tab', 'Tab');
   lines[1].append(tab.element);
-  keySets.letterKeysEng[0].forEach(item => {
-    const keyObject = new KeyLetter(checkName(item.name, item), item.data);
+  letterKeys[0].forEach(item => {
+    const keyObject = new KeyLetter(item.name, item.data, item.altName);
     lines[1].append(keyObject.element)
   });
   const del = new KeyGeneral('Del', 'Delete');
@@ -35,9 +43,10 @@ export function initRender() {
 
   //LINE 3
   const capsLock = new KeyGeneral('CapsLock', 'CapsLock');
+  capsLock.element.classList.add('caps-lock');
   lines[2].append(capsLock.element);
-  keySets.letterKeysEng[1].forEach(item => {
-    const keyObject = new KeyLetter(checkName(item.name, item), item.data);
+  letterKeys[1].forEach(item => {
+    const keyObject = new KeyLetter(item.name, item.data, item.altName);
     lines[2].append(keyObject.element)
   });
   const enter = new KeyGeneral('Enter', 'Enter');
@@ -45,18 +54,20 @@ export function initRender() {
 
   //LINE 4
   const leftShift = new KeyGeneral('Shift', 'ShiftLeft');
+  leftShift.element.classList.add('shift')
   lines[3].append(leftShift.element);
-  keySets.letterKeysEng[2].forEach(item => {
-    const keyObject = new KeyLetter(checkName(item.name, item), item.data);
+  letterKeys[2].forEach(item => {
+    const keyObject = new KeyLetter(item.name, item.data, item.altName);
     lines[3].append(keyObject.element)
   });
   const arrowUp = new KeyGeneral('↑', 'ArrowUp');
   lines[3].append(arrowUp.element);
   const rightShift = new KeyGeneral('Shift', 'ShiftRight');
+  rightShift.element.classList.add('shift')
   lines[3].append(rightShift.element);
 
   //LINE 5
-  const leftCtrl = new KeyGeneral('Ctrl', 'CtrlLeft');
+  const leftCtrl = new KeyGeneral('Ctrl', 'ControlLeft');
   lines[4].append(leftCtrl.element);
   const win = new KeyGeneral('Win', 'Meta');
   lines[4].append(win.element);
@@ -68,7 +79,7 @@ export function initRender() {
   lines[4].append(rightAlt.element);
   const context = new KeyGeneral('Ctx', 'ContextMenu');
   lines[4].append(context.element);
-  const rightCtrl = new KeyGeneral('Ctrl', 'CtrlRight');
+  const rightCtrl = new KeyGeneral('Ctrl', 'ControlRight');
   lines[4].append(rightCtrl.element);
   const arrowLeft = new KeyGeneral('←', 'ArrowLeft');
   lines[4].append(arrowLeft.element);
@@ -87,11 +98,11 @@ export function initRender() {
   body.prepend(textarea, keyboardContainer);
 }
 
-function checkName(name, item) {
-  let keyName = name;
-  if (state.isCapsOn) keyName = item.altName;
-  return keyName;
-}
+// function checkName(name, item) {
+//   let keyName = name;
+//   if (state.isCapsOn) keyName = item.altName;
+//   return keyName;
+// }
 
 // function checkLanguage() {
 //   console.log('hello')

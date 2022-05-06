@@ -1,5 +1,6 @@
 // import { state } from "./state.js";
-import { handleCapsLock, handleShift } from "./special-keys.js";
+import { handleCapsLock, handleShift, handleControl, handleAlt } from "./special-keys.js";
+import keySets from './key-sets.js';
 
 export function handlePress(e, textarea) {
   textarea.focus();
@@ -9,12 +10,12 @@ export function handlePress(e, textarea) {
     e.target.classList.add('key-active');
   }
   if (e.target.classList.contains('key-common')) {
-    arr.splice(position - 1, 0, e.target.textContent)
+    arr.splice(position, 0, e.target.textContent)
     textarea.value = arr.join('');
-    textarea.setSelectionRange(position, position);
+    textarea.setSelectionRange(position + 1, position + 1);
   }
   if (e.target.dataset.code === 'CapsLock') {
-    handleCapsLock(e);
+    handleCapsLock();
   }
   if (e.target.dataset.code === 'ShiftLeft' || e.target.dataset.code === 'ShiftRight') {
     handleShift(e);
@@ -46,31 +47,55 @@ export function handlePress(e, textarea) {
     textarea.setSelectionRange(position + 1, position + 1);
   }
   if (e.target.dataset.code === 'ArrowDown') {
-    const event = new KeyboardEvent('keydown', {'key': 'ArrowDown', 'code': 'ArrowDown', 'which': 40})
+    const event = new KeyboardEvent('keydown', {
+      key: 'ArrowDown',
+      code: 'ArrowDown',
+      which: 40,
+      // bubbles: true,
+      // cancelable: false
+    })
     console.log(event)
-    textarea.dispatchEvent(event);
+    setTimeout(() => {
+      textarea.dispatchEvent(event);
+    });
+    
   }
 }
 
 export function handleKeyDown(e) {
   const textarea = document.body.querySelector('textarea');
-  textarea.focus();
   const allKeys = document.body.querySelectorAll('.key');
+  textarea.focus();
+  const letters = [...keySets.letterKeysEng[0], ...keySets.letterKeysEng[1], ...keySets.letterKeysEng[2]] 
   allKeys.forEach(key => {
-    if(key.dataset.code === e.code || key.dataset.code === e.key) {
+    if(key.dataset.code === e.code) {
       key.classList.add('key-active')
     }
   })
+  if (letters.some(item => item.data === e.code)) {
+    console.log('is')
+  }
   if (e.key === 'Tab') {
     let position = textarea.selectionStart;
     const arr = (textarea.value).split('');
     e.preventDefault();
-    arr.splice(position - 1, 0, '\t')
+    arr.splice(position, 0, '\t')
     textarea.value = arr.join('');
-    textarea.setSelectionRange(position, position);
+    textarea.setSelectionRange(position + 1, position + 1);
   }
-  if (e.key === 'Control' || e.key === 'Alt') {
+  if (e.key === 'Control') {
     e.preventDefault();
+    handleControl(e);
+  }
+  if (e.key === 'Alt') {
+    e.preventDefault();
+    handleAlt(e);
+  }
+  if (e.key === 'Shift') {
+    handleShift();
+  }
+  if (e.key === 'CapsLock') {
+    handleCapsLock();
   }
 }
 

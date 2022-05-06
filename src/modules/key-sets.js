@@ -1,68 +1,136 @@
-const numberKeys = [
+const numberKeysEng = [
   {
     name: '`',
     altName: '~',
-    data: '`'
+    data: 'Backquote'
   },
   {
     name: '1',
     altName: '!',
-    data: '1'
+    data: 'Digit1'
   },
   {
     name: '2',
     altName: '@',
-    data: '2'
+    data: 'Digit2'
   },
   {
     name: '3',
     altName: '#',
-    data: '3'
+    data: 'Digit3'
   },
   {
     name: '4',
     altName: '$',
-    data: '4'
+    data: 'Digit4'
   },
   {
     name: '5',
     altName: '%',
-    data: '5'
+    data: 'Digit5'
   },
   {
     name: '6',
     altName: '^',
-    data: '6'
+    data: 'Digit6'
   },
   {
     name: '7',
     altName: '&',
-    data: '7'
+    data: 'Digit7'
   },
   {
     name: '8',
     altName: '*',
-    data: '8'
+    data: 'Digit8'
   },
   {
     name: '9',
     altName: '(',
-    data: '9'
+    data: 'Digit9'
   },
   {
     name: '0',
     altName: ')',
-    data: '0'
+    data: 'Digit0'
   },
   {
     name: '-',
     altName: '_',
-    data: 'num-minus'
+    data: 'NumpadSubtract'
   },
   {
     name: '=',
     altName: '+',
-    data: 'num-plus'
+    data: 'Equal'
+  },
+]
+
+const numberKeysBel = [
+  {
+    name: 'ё',
+    altName: 'Ё',
+    data: 'Backquote'
+  },
+  {
+    name: '1',
+    altName: '!',
+    data: 'Digit1'
+  },
+  {
+    name: '2',
+    altName: '@',
+    data: 'Digit2'
+  },
+  {
+    name: '3',
+    altName: '#',
+    data: 'Digit3'
+  },
+  {
+    name: '4',
+    altName: '$',
+    data: 'Digit4'
+  },
+  {
+    name: '5',
+    altName: '%',
+    data: 'Digit5'
+  },
+  {
+    name: '6',
+    altName: '^',
+    data: 'Digit6'
+  },
+  {
+    name: '7',
+    altName: '&',
+    data: 'Digit7'
+  },
+  {
+    name: '8',
+    altName: '*',
+    data: 'Digit8'
+  },
+  {
+    name: '9',
+    altName: '(',
+    data: 'Digit9'
+  },
+  {
+    name: '0',
+    altName: ')',
+    data: 'Digit0'
+  },
+  {
+    name: '-',
+    altName: '_',
+    data: 'NumpadSubtract'
+  },
+  {
+    name: '=',
+    altName: '+',
+    data: 'Equal'
   },
 ]
 
@@ -70,174 +138,351 @@ const letterKeysEng = [[
   {
     name: 'q',
     altName: 'Q',
-    data: 'q'
+    data: 'KeyQ'
   },
   {
     name: 'w',
     altName: 'W',
-    data: 'w'
+    data: 'KeyW'
   },
   {
     name: 'e',
     altName: 'E',
-    data: 'e'
+    data: 'KeyE'
   },
   {
     name: 'r',
     altName: 'R',
-    data: 'r'
+    data: 'KeyR'
   },
   {
     name: 't',
     altName: 'T',
-    data: 't'
+    data: 'KeyT'
   },
   {
     name: 'y',
     altName: 'Y',
-    data: 'y'
+    data: 'KeyY'
   },
   {
     name: 'u',
     altName: 'U',
-    data: 'u'
+    data: 'KeyU'
   },
   {
     name: 'i',
     altName: 'I',
-    data: 'i'
+    data: 'KeyI'
   },
   {
     name: 'o',
     altName: 'O',
-    data: 'o'
+    data: 'KeyO'
   },
   {
     name: 'p',
     altName: 'P',
-    data: 'p'
+    data: 'KeyP'
   },
   {
     name: '[',
     altName: '{',
-    data: '['
+    data: 'BracketLeft'
   },
   {
     name: ']',
     altName: '}',
-    data: ']'
+    data: 'BracketRight'
   },
   {
     name: '\\',
     altName: '|',
-    data: '\\'
+    data: 'Backslash'
   },
 ],[
   {
     name: 'a',
     altName: 'A',
-    data: 'a'
+    data: 'KeyA'
   },
   {
     name: 's',
     altName: 'S',
-    data: 's'
+    data: 'KeyS'
   },
   {
     name: 'd',
     altName: 'D',
-    data: 'd'
+    data: 'KeyD'
   },
   {
     name: 'f',
     altName: 'F',
-    data: 'f'
+    data: 'KeyF'
   },
   {
     name: 'g',
     altName: 'G',
-    data: 'g'
+    data: 'KeyG'
   },
   {
     name: 'h',
     altName: 'H',
-    data: 'h'
+    data: 'KeyH'
   },
   {
     name: 'j',
     altName: 'J',
-    data: 'j'
+    data: 'KeyJ'
   },
   {
     name: 'k',
     altName: 'K',
-    data: 'k'
+    data: 'KeyK'
   },
   {
     name: 'l',
     altName: 'L',
-    data: 'l'
+    data: 'KeyL'
   },
   {
     name: ';',
     altName: ':',
-    data: ';'
+    data: 'Semicolon'
   },
   {
     name: '\'',
     altName: '"',
-    data: '\''
+    data: 'Quote'
   },
 ],[
   {
     name: 'z',
     altName: 'Z',
-    data: 'z'
+    data: 'KeyZ'
   },
   {
     name: 'x',
     altName: 'X',
-    data: 'x'
+    data: 'KeyX'
   },
   {
     name: 'c',
     altName: 'C',
-    data: 'c'
+    data: 'KeyC'
   },
   {
     name: 'v',
     altName: 'V',
-    data: 'v'
+    data: 'KeyV'
   },
   {
     name: 'b',
     altName: 'B',
-    data: 'b'
+    data: 'KeyB'
   },
   {
     name: 'n',
     altName: 'N',
-    data: 'n'
+    data: 'KeyN'
   },
   {
     name: 'm',
     altName: 'M',
-    data: 'm'
+    data: 'KeyM'
   },
   {
     name: ',',
     altName: '<',
-    data: ','
+    data: 'NumpadDecimal'
   },
   {
     name: '.',
     altName: '>',
-    data: '.'
+    data: 'Period'
   },
   {
     name: '/',
     altName: '?',
-    data: '/'
+    data: 'Slash'
+  },
+]
+
+]
+
+const letterKeysBel = [[
+  {
+    name: 'й',
+    altName: 'Й',
+    data: 'KeyQ'
+  },
+  {
+    name: 'ц',
+    altName: 'Ц',
+    data: 'KeyW'
+  },
+  {
+    name: 'у',
+    altName: 'У',
+    data: 'KeyE'
+  },
+  {
+    name: 'к',
+    altName: 'К',
+    data: 'KeyR'
+  },
+  {
+    name: 'е',
+    altName: 'Е',
+    data: 'KeyT'
+  },
+  {
+    name: 'н',
+    altName: 'Н',
+    data: 'KeyY'
+  },
+  {
+    name: 'г',
+    altName: 'Г',
+    data: 'KeyU'
+  },
+  {
+    name: 'ш',
+    altName: 'Ш',
+    data: 'KeyI'
+  },
+  {
+    name: 'ў',
+    altName: 'Ў',
+    data: 'KeyO'
+  },
+  {
+    name: 'з',
+    altName: 'З',
+    data: 'KeyP'
+  },
+  {
+    name: '[',
+    altName: '{',
+    data: 'BracketLeft'
+  },
+  {
+    name: ']',
+    altName: '}',
+    data: 'BracketRight'
+  },
+  {
+    name: '\\',
+    altName: '|',
+    data: 'Backslash'
+  },
+],[
+  {
+    name: 'ф',
+    altName: 'Ф',
+    data: 'KeyA'
+  },
+  {
+    name: 'ы',
+    altName: 'Ы',
+    data: 'KeyS'
+  },
+  {
+    name: 'в',
+    altName: 'В',
+    data: 'KeyD'
+  },
+  {
+    name: 'а',
+    altName: 'А',
+    data: 'KeyF'
+  },
+  {
+    name: 'п',
+    altName: 'П',
+    data: 'KeyG'
+  },
+  {
+    name: 'р',
+    altName: 'Р',
+    data: 'KeyH'
+  },
+  {
+    name: 'о',
+    altName: 'О',
+    data: 'KeyJ'
+  },
+  {
+    name: 'л',
+    altName: 'Л',
+    data: 'KeyK'
+  },
+  {
+    name: 'д',
+    altName: 'Д',
+    data: 'KeyL'
+  },
+  {
+    name: 'ж',
+    altName: 'Ж',
+    data: 'Semicolon'
+  },
+  {
+    name: 'э',
+    altName: 'Э',
+    data: 'Quote'
+  },
+],[
+  {
+    name: 'я',
+    altName: 'Я',
+    data: 'KeyZ'
+  },
+  {
+    name: 'ч',
+    altName: 'Ч',
+    data: 'KeyX'
+  },
+  {
+    name: 'с',
+    altName: 'С',
+    data: 'KeyC'
+  },
+  {
+    name: 'м',
+    altName: 'М',
+    data: 'KeyV'
+  },
+  {
+    name: 'і',
+    altName: 'І',
+    data: 'KeyB'
+  },
+  {
+    name: 'т',
+    altName: 'Т',
+    data: 'KeyN'
+  },
+  {
+    name: 'ь',
+    altName: 'Ь',
+    data: 'KeyM'
+  },
+  {
+    name: 'б',
+    altName: 'Б',
+    data: 'NumpadDecimal'
+  },
+  {
+    name: 'ю',
+    altName: 'Ю',
+    data: 'Period'
+  },
+  {
+    name: '.',
+    altName: ',',
+    data: 'Slash'
   },
 ]
 
@@ -272,7 +517,9 @@ const generalKeys = [
 ]
 
 export default {
-  numberKeys,
+  numberKeysEng,
+  numberKeysBel,
   letterKeysEng,
+  letterKeysBel,
   generalKeys
 }
