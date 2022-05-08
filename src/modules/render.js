@@ -5,6 +5,11 @@ import { handlePress, removeKeyActive } from './handlers.js';
 
 export function initRender() {
   const body = document.body;
+  state.lang = localStorage.getItem('lang');
+  const textFields = keySets.textFields[state.lang];
+  const h1 = document.createElement('h1');
+  h1.className = 'h1';
+  h1.textContent = textFields[0]; 
   const textarea = document.createElement('textarea');
   textarea.setAttribute('autofocus', true);
   textarea.classList.add('textarea');
@@ -77,8 +82,6 @@ export function initRender() {
   lines[4].append(space.element);
   const rightAlt = new KeyGeneral('Alt', 'AltRight');
   lines[4].append(rightAlt.element);
-  const context = new KeyGeneral('Ctx', 'ContextMenu');
-  lines[4].append(context.element);
   const rightCtrl = new KeyGeneral('Ctrl', 'ControlRight');
   lines[4].append(rightCtrl.element);
   const arrowLeft = new KeyGeneral('←', 'ArrowLeft');
@@ -88,6 +91,13 @@ export function initRender() {
   const arrowRight = new KeyGeneral('→', 'ArrowRight');
   lines[4].append(arrowRight.element);
 
+  //TEXTS
+  const bottomTexts = document.createElement('div');
+  bottomTexts.className = 'bottom-text'
+  bottomTexts.innerHTML = `<p>${textFields[1]}</p>
+                           <p>${textFields[2]}</p>
+                          `;
+
   //EVENT_LISTENER
   keyboardContainer.addEventListener('mousedown', (e) => {
     handlePress(e, textarea)
@@ -95,15 +105,5 @@ export function initRender() {
   keyboardContainer.addEventListener('mouseup', () => {
     removeKeyActive(textarea)
   });
-  body.prepend(textarea, keyboardContainer);
+  body.prepend(h1, textarea, keyboardContainer, bottomTexts);
 }
-
-// function checkName(name, item) {
-//   let keyName = name;
-//   if (state.isCapsOn) keyName = item.altName;
-//   return keyName;
-// }
-
-// function checkLanguage() {
-//   console.log('hello')
-// }

@@ -1,4 +1,4 @@
-import { state } from "./state.js";
+// import { state } from "./state.js";
 import { handleCapsLock, handleShift, handleControl, handleAlt } from "./special-keys.js";
 import keySets from './key-sets.js';
 
@@ -75,10 +75,17 @@ export function handleKeyDown(e) {
   })
   if (letters.some(item => item.data === e.code)) {
     e.preventDefault();
-    if(!state.isCapsOn){
-      arr.splice(position, 0, e.key.toLowerCase())
+    console.log(e.code)
+    let currentLetter = null;
+    allKeys.forEach(letter => {
+      if(letter.dataset.code === e.code) {
+        currentLetter = letter;
+      }
+    })
+    if(!currentLetter) {
+      arr.splice(position, 0, e.key)
     } else {
-      arr.splice(position, 0, e.key.toUpperCase())
+      arr.splice(position, 0, currentLetter.textContent)
     }
     textarea.value = arr.join('');
     textarea.setSelectionRange(position + 1, position + 1);
@@ -92,18 +99,15 @@ export function handleKeyDown(e) {
     textarea.setSelectionRange(position + 1, position + 1);
   }
   if (e.key === 'Control') {
-    e.preventDefault();
     handleControl(e);
   }
   if (e.key === 'Alt') {
-    e.preventDefault();
     handleAlt(e);
   }
   if (e.key === 'Shift') {
     handleShift(e);
   }
   if (e.key === 'CapsLock') {
-    e.preventDefault();
     handleCapsLock();
   }
 }
