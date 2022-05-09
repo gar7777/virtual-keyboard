@@ -1,278 +1,502 @@
-const numberKeys = [
+const numberKeysEng = [
   {
     name: '`',
     altName: '~',
-    data: 'num-tilda'
+    data: 'Backquote'
   },
   {
     name: '1',
     altName: '!',
-    data: 'num-1'
+    data: 'Digit1'
   },
   {
     name: '2',
     altName: '@',
-    data: 'num-2'
+    data: 'Digit2'
   },
   {
     name: '3',
     altName: '#',
-    data: 'num-3'
+    data: 'Digit3'
   },
   {
     name: '4',
     altName: '$',
-    data: 'num-4'
+    data: 'Digit4'
   },
   {
     name: '5',
     altName: '%',
-    data: 'num-5'
+    data: 'Digit5'
   },
   {
     name: '6',
     altName: '^',
-    data: 'num-6'
+    data: 'Digit6'
   },
   {
     name: '7',
     altName: '&',
-    data: 'num-7'
+    data: 'Digit7'
   },
   {
     name: '8',
     altName: '*',
-    data: 'num-8'
+    data: 'Digit8'
   },
   {
     name: '9',
     altName: '(',
-    data: 'num-9'
+    data: 'Digit9'
   },
   {
     name: '0',
     altName: ')',
-    data: 'num-0'
+    data: 'Digit0'
   },
   {
     name: '-',
     altName: '_',
-    data: 'num-minus'
+    data: 'NumpadSubtract'
   },
   {
     name: '=',
     altName: '+',
-    data: 'num-plus'
+    data: 'Equal'
+  },
+]
+
+const numberKeysBel = [
+  {
+    name: 'ё',
+    altName: 'Ё',
+    data: 'Backquote'
+  },
+  {
+    name: '1',
+    altName: '!',
+    data: 'Digit1'
+  },
+  {
+    name: '2',
+    altName: '"',
+    data: 'Digit2'
+  },
+  {
+    name: '3',
+    altName: '№',
+    data: 'Digit3'
+  },
+  {
+    name: '4',
+    altName: ';',
+    data: 'Digit4'
+  },
+  {
+    name: '5',
+    altName: '%',
+    data: 'Digit5'
+  },
+  {
+    name: '6',
+    altName: ':',
+    data: 'Digit6'
+  },
+  {
+    name: '7',
+    altName: '?',
+    data: 'Digit7'
+  },
+  {
+    name: '8',
+    altName: '*',
+    data: 'Digit8'
+  },
+  {
+    name: '9',
+    altName: '(',
+    data: 'Digit9'
+  },
+  {
+    name: '0',
+    altName: ')',
+    data: 'Digit0'
+  },
+  {
+    name: '-',
+    altName: '_',
+    data: 'NumpadSubtract'
+  },
+  {
+    name: '=',
+    altName: '+',
+    data: 'Equal'
   },
 ]
 
 const letterKeysEng = [[
   {
     name: 'q',
-    altName: 'Q',
-    data: 'q'
+    altName: 'q',
+    data: 'KeyQ'
   },
   {
     name: 'w',
-    altName: 'W',
-    data: 'w'
+    altName: 'w',
+    data: 'KeyW'
   },
   {
     name: 'e',
-    altName: 'E',
-    data: 'e'
+    altName: 'e',
+    data: 'KeyE'
   },
   {
     name: 'r',
-    altName: 'R',
-    data: 'r'
+    altName: 'r',
+    data: 'KeyR'
   },
   {
     name: 't',
-    altName: 'T',
-    data: 't'
+    altName: 't',
+    data: 'KeyT'
   },
   {
     name: 'y',
-    altName: 'Y',
-    data: 'y'
+    altName: 'y',
+    data: 'KeyY'
   },
   {
     name: 'u',
-    altName: 'U',
-    data: 'u'
+    altName: 'u',
+    data: 'KeyU'
   },
   {
     name: 'i',
-    altName: 'I',
-    data: 'i'
+    altName: 'i',
+    data: 'KeyI'
   },
   {
     name: 'o',
-    altName: 'O',
-    data: 'o'
+    altName: 'o',
+    data: 'KeyO'
   },
   {
     name: 'p',
-    altName: 'P',
-    data: 'p'
+    altName: 'p',
+    data: 'KeyP'
   },
   {
     name: '[',
     altName: '{',
-    data: '['
+    data: 'BracketLeft'
   },
   {
     name: ']',
     altName: '}',
-    data: ']'
+    data: 'BracketRight'
   },
   {
     name: '\\',
     altName: '|',
-    data: '\\'
+    data: 'Backslash'
   },
 ],[
   {
     name: 'a',
-    altName: 'A',
-    data: 'a'
+    altName: 'a',
+    data: 'KeyA'
   },
   {
     name: 's',
-    altName: 'S',
-    data: 's'
+    altName: 's',
+    data: 'KeyS'
   },
   {
     name: 'd',
-    altName: 'D',
-    data: 'd'
+    altName: 'd',
+    data: 'KeyD'
   },
   {
     name: 'f',
-    altName: 'F',
-    data: 'f'
+    altName: 'f',
+    data: 'KeyF'
   },
   {
     name: 'g',
-    altName: 'G',
-    data: 'g'
+    altName: 'g',
+    data: 'KeyG'
   },
   {
     name: 'h',
-    altName: 'H',
-    data: 'h'
+    altName: 'h',
+    data: 'KeyH'
   },
   {
     name: 'j',
-    altName: 'J',
-    data: 'j'
+    altName: 'j',
+    data: 'KeyJ'
   },
   {
     name: 'k',
-    altName: 'K',
-    data: 'k'
+    altName: 'k',
+    data: 'KeyK'
   },
   {
     name: 'l',
-    altName: 'L',
-    data: 'l'
+    altName: 'l',
+    data: 'KeyL'
   },
   {
     name: ';',
     altName: ':',
-    data: ';'
+    data: 'Semicolon'
   },
   {
     name: '\'',
     altName: '"',
-    data: '\''
+    data: 'Quote'
   },
 ],[
   {
     name: 'z',
-    altName: 'Z',
-    data: 'z'
+    altName: 'z',
+    data: 'KeyZ'
   },
   {
     name: 'x',
-    altName: 'X',
-    data: 'x'
+    altName: 'x',
+    data: 'KeyX'
   },
   {
     name: 'c',
-    altName: 'C',
-    data: 'c'
+    altName: 'c',
+    data: 'KeyC'
   },
   {
     name: 'v',
-    altName: 'V',
-    data: 'v'
+    altName: 'v',
+    data: 'KeyV'
   },
   {
     name: 'b',
-    altName: 'B',
-    data: 'b'
+    altName: 'b',
+    data: 'KeyB'
   },
   {
     name: 'n',
-    altName: 'N',
-    data: 'n'
+    altName: 'n',
+    data: 'KeyN'
   },
   {
     name: 'm',
-    altName: 'M',
-    data: 'm'
+    altName: 'm',
+    data: 'KeyM'
   },
   {
     name: ',',
     altName: '<',
-    data: ','
+    data: 'NumpadDecimal'
   },
   {
     name: '.',
     altName: '>',
-    data: '.'
+    data: 'Period'
   },
   {
     name: '/',
     altName: '?',
-    data: '/'
+    data: 'Slash'
   },
 ]
 
 ]
 
-const generalKeys = [
+const letterKeysBel = [[
   {
-    name: 'Backspase',
-    altName: 'Backspase',
-    data: 'Backspase'
+    name: 'й',
+    altName: 'й',
+    data: 'KeyQ'
   },
   {
-    name: 'Tab',
-    altName: 'Tab',
-    data: 'Tab'
+    name: 'ц',
+    altName: 'ц',
+    data: 'KeyW'
   },
   {
-    name: 'Del',
-    altName: 'Del',
-    data: 'Delete'
+    name: 'у',
+    altName: 'у',
+    data: 'KeyE'
   },
   {
-    name: 'CapsLock',
-    altName: 'CapsLock',
-    data: 'CapsLock'
+    name: 'к',
+    altName: 'к',
+    data: 'KeyR'
   },
   {
-    name: 'Enter',
-    altName: 'Enter',
-    data: 'Enter'
+    name: 'е',
+    altName: 'е',
+    data: 'KeyT'
+  },
+  {
+    name: 'н',
+    altName: 'н',
+    data: 'KeyY'
+  },
+  {
+    name: 'г',
+    altName: 'г',
+    data: 'KeyU'
+  },
+  {
+    name: 'ш',
+    altName: 'ш',
+    data: 'KeyI'
+  },
+  {
+    name: 'ў',
+    altName: 'ў',
+    data: 'KeyO'
+  },
+  {
+    name: 'з',
+    altName: 'з',
+    data: 'KeyP'
+  },
+  {
+    name: 'х',
+    altName: 'х',
+    data: 'BracketLeft'
+  },
+  {
+    name: '\'',
+    altName: '\'',
+    data: 'BracketRight'
+  },
+  {
+    name: '\\',
+    altName: '|',
+    data: 'Backslash'
+  },
+],[
+  {
+    name: 'ф',
+    altName: 'ф',
+    data: 'KeyA'
+  },
+  {
+    name: 'ы',
+    altName: 'ы',
+    data: 'KeyS'
+  },
+  {
+    name: 'в',
+    altName: 'в',
+    data: 'KeyD'
+  },
+  {
+    name: 'а',
+    altName: 'а',
+    data: 'KeyF'
+  },
+  {
+    name: 'п',
+    altName: 'п',
+    data: 'KeyG'
+  },
+  {
+    name: 'р',
+    altName: 'р',
+    data: 'KeyH'
+  },
+  {
+    name: 'о',
+    altName: 'о',
+    data: 'KeyJ'
+  },
+  {
+    name: 'л',
+    altName: 'л',
+    data: 'KeyK'
+  },
+  {
+    name: 'д',
+    altName: 'д',
+    data: 'KeyL'
+  },
+  {
+    name: 'ж',
+    altName: 'ж',
+    data: 'Semicolon'
+  },
+  {
+    name: 'э',
+    altName: 'э',
+    data: 'Quote'
+  },
+],[
+  {
+    name: 'я',
+    altName: 'я',
+    data: 'KeyZ'
+  },
+  {
+    name: 'ч',
+    altName: 'ч',
+    data: 'KeyX'
+  },
+  {
+    name: 'с',
+    altName: 'с',
+    data: 'KeyC'
+  },
+  {
+    name: 'м',
+    altName: 'м',
+    data: 'KeyV'
+  },
+  {
+    name: 'і',
+    altName: 'і',
+    data: 'KeyB'
+  },
+  {
+    name: 'т',
+    altName: 'т',
+    data: 'KeyN'
+  },
+  {
+    name: 'ь',
+    altName: 'ь',
+    data: 'KeyM'
+  },
+  {
+    name: 'б',
+    altName: 'б',
+    data: 'NumpadDecimal'
+  },
+  {
+    name: 'ю',
+    altName: 'ю',
+    data: 'Period'
+  },
+  {
+    name: '.',
+    altName: ',',
+    data: 'Slash'
   },
 ]
+
+]
+
+const textFields = {
+  eng: ['RSS Virtual Keyboard', 'The keyboard is created in OS Windows', 'To change the language press CTRL + ALT'],
+  bel: ['Віртуальная клавіятура RSS', 'Клавіятура створана ў аперацыйнай сістэме Windows', 'Каб змяніть раскладку, націсніце CTRL + ALT']
+}
 
 export default {
-  numberKeys,
+  numberKeysEng,
+  numberKeysBel,
   letterKeysEng,
-  generalKeys
+  letterKeysBel,
+  textFields
 }
