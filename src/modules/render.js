@@ -5,8 +5,11 @@ import { handlePress, removeKeyActive } from './handlers.js';
 
 export function initRender() {
   const body = document.body;
-  state.lang = localStorage.getItem('lang');
-  const textFields = keySets.textFields[state.lang];
+  let lang = state.lang;
+  if (localStorage.getItem('lang')) {
+    lang = localStorage.getItem('lang');
+  }
+  const textFields = keySets.textFields[lang];
   const h1 = document.createElement('h1');
   h1.className = 'h1';
   h1.textContent = textFields[0]; 
