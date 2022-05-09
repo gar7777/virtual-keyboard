@@ -47,17 +47,10 @@ export function handlePress(e, textarea) {
     textarea.setSelectionRange(position + 1, position + 1);
   }
   if (e.target.dataset.code === 'ArrowDown') {
-    const event = new KeyboardEvent('keydown', {
-      key: 'ArrowDown',
-      code: 'ArrowDown',
-      which: 40,
-      // bubbles: true,
-      // cancelable: false
-    })
-    setTimeout(() => {
-    textarea.dispatchEvent(event);
-    });
-    
+    textarea.setSelectionRange(position + 58, position + 58);    
+  }
+  if (e.target.dataset.code === 'ArrowUp') {
+    textarea.setSelectionRange(position - 58, position - 58);    
   }
 }
 
