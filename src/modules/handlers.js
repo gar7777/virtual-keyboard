@@ -68,7 +68,6 @@ export function handleKeyDown(e) {
   })
   if (letters.some(item => item.data === e.code)) {
     e.preventDefault();
-    console.log(e.code)
     let currentLetter = null;
     allKeys.forEach(letter => {
       if(letter.dataset.code === e.code) {
