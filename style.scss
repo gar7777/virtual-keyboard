@@ -1,0 +1,133 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+$color-dark: #696969;
+
+.h1 {
+  width: 60vw;
+  margin: 20px auto;
+  font-family: 'Montserrat', 'Tahoma', sans-serif;
+  font-weight: 700;
+  font-size: 2.6rem;
+  text-align: center;
+  color: $color-dark;
+}
+
+.key {
+  min-width: 3vw;
+  height: 3vw;
+  border-radius: 10px;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid gray;
+  user-select: none;
+  font-family: 'Montserrat', 'Tahoma', sans-serif;
+  font-size: 1.2rem;
+  box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2) inset;
+
+    @media only screen and (max-width: 1200px) {
+      font-size: 1rem;
+    } 
+    
+    @media only screen and (max-width: 900px) {
+      font-size: 0.75rem;
+    } 
+  }
+
+
+.key-common {
+  background-color: LightGrey;
+  background: linear-gradient(45deg, rgb(222, 225, 227), rgb(242, 246, 249));
+  transition: all 0.5s;
+   
+  &:hover {
+    background-color: LightSlateGray;
+    background: linear-gradient(45deg, rgb(224, 225, 227), rgb(200, 201, 202));
+  }
+}
+
+.key-general {
+  background-color: Gray;
+  background: linear-gradient(45deg, rgb(242, 242, 242), rgb(208, 211, 214), rgb(196, 197, 194));
+
+  &:hover {
+    background-color: LightSlateGray;
+    background: linear-gradient(45deg, rgb(174, 177, 180), rgb(215, 217, 219), rgb(157, 157, 153));
+  }
+}
+
+.shift {
+  width: 6.47vw;
+}
+
+[data-code="Tab"] {
+  width: 6vw;
+}
+
+[data-code="CapsLock"] {
+  width: 7.5vw;
+}
+
+[data-code="Enter"] {
+  width: 5.5vw;
+}
+
+[data-code="Space"] {
+  flex-grow: 1;
+}
+
+.keyboard-container {
+  width: 60vw;
+  height: 20vw;
+  margin: 0 auto;
+  padding: 0.8vw;
+  background: linear-gradient(45deg, rgb(239, 240, 240), rgb(195, 195, 195));
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 10px;
+}
+
+.keyboard-line {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75vw;
+}
+
+.key-active,
+.instant-active {
+  transition: all 0.5s;
+  background-color: blueviolet;
+  transform: scale(0.95);
+  box-shadow: 0px 5px 5px 2px rgba(34, 60, 80, 0.2);
+  background-color: DimGrey;
+  background: linear-gradient(45deg, rgb(136, 142, 148), rgb(118, 131, 142), rgb(91, 91, 92));
+}
+
+.textarea {
+  width: 60vw;
+  height: 30vh;
+  display: block;
+  resize: none;
+  margin: 0 auto 35px;
+  padding: 10px;
+  font-family: 'Montserrat', 'Tahoma', sans-serif;
+  font-size: 1.6rem;
+}
+
+.bottom-text {
+  width: 60vw;
+  margin: 20px auto;
+  text-align: center;
+  font-family: 'Montserrat', 'Tahoma', sans-serif;
+  font-size: 1.2rem;
+
+  p {
+    padding: 10px 0;
+  }
+}
