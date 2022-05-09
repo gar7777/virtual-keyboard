@@ -5,14 +5,14 @@ import { handlePress, removeKeyActive } from './handlers.js';
 
 export function initRender() {
   const body = document.body;
-  let lang = state.lang;
+  let lang = 'eng';
   if (localStorage.getItem('lang')) {
     lang = localStorage.getItem('lang');
   }
   const textFields = keySets.textFields[lang];
   const h1 = document.createElement('h1');
   h1.className = 'h1';
-  h1.textContent = textFields[0]; 
+  h1.textContent = textFields[0];
   const textarea = document.createElement('textarea');
   textarea.setAttribute('autofocus', true);
   textarea.classList.add('textarea');
