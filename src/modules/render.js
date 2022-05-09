@@ -1,6 +1,5 @@
 import keySets from './key-sets.js';
 import {KeyNum,  KeyLetter, KeyGeneral, Line} from './key-templates.js';
-import { state } from './state.js';
 import { handlePress, removeKeyActive } from './handlers.js';
 
 export function initRender() {
@@ -25,11 +24,9 @@ export function initRender() {
   const lines = keyboardContainer.querySelectorAll('.keyboard-line');
   //LINE 1
   let numberKeys = keySets.numberKeysEng;
-  if (state.lang === 'bel') {
-    numberKeys = keySets.numberKeysBel;
-  }
   let letterKeys = keySets.letterKeysEng;
-  if (state.lang === 'bel') {
+  if (lang === 'bel') {
+    numberKeys = keySets.numberKeysBel;
     letterKeys = keySets.letterKeysBel;
   }
   numberKeys.forEach(item => {
