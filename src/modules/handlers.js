@@ -60,7 +60,7 @@ export function handleKeyDown(e) {
   const arr = (textarea.value).split('');
   const allKeys = document.body.querySelectorAll('.key');
   textarea.focus();
-  const letters = [...keySets.letterKeysEng[0], ...keySets.letterKeysEng[1], ...keySets.letterKeysEng[2]] 
+  const letters = [...keySets.numberKeysEng, ...keySets.letterKeysEng[0], ...keySets.letterKeysEng[1], ...keySets.letterKeysEng[2]] 
   allKeys.forEach(key => {
     if(key.dataset.code === e.code) {
       key.classList.add('key-active')

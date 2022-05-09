@@ -85,14 +85,14 @@ export function initRender() {
   lines[4].append(space.element);
   const rightAlt = new KeyGeneral('Alt', 'AltRight');
   lines[4].append(rightAlt.element);
-  const rightCtrl = new KeyGeneral('Ctrl', 'ControlRight');
-  lines[4].append(rightCtrl.element);
   const arrowLeft = new KeyGeneral('←', 'ArrowLeft');
   lines[4].append(arrowLeft.element);
   const arrowDown = new KeyGeneral('↓', 'ArrowDown');
   lines[4].append(arrowDown.element);
   const arrowRight = new KeyGeneral('→', 'ArrowRight');
   lines[4].append(arrowRight.element);
+  const rightCtrl = new KeyGeneral('Ctrl', 'ControlRight');
+  lines[4].append(rightCtrl.element);
 
   //TEXTS
   const bottomTexts = document.createElement('div');
